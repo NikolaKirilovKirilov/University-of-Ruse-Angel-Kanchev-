@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <iostream>
+#include <stdlib.h>
+
+using namespace std;
+
+typedef struct
+{
+
+    float X, Y, R;
+} crcls;
+typedef struct
+{
+
+    float X, Y;
+} dts;
+
+crcls circlesDat[30];
+dts dotsDat[30];
+int dotsInCircles[30][30], dotsPerCircl[20];
+int dots, circles, counter = 0, Br = 0, k;
+
+void readCircles(crcls* crc)
+{
+    cout << "Circle-X: "; cin >> crc->X;
+    cout << "Circle-Y: "; cin >> crc->Y;
+    cout << "Circle-R: "; cin >> crc->R;
+}
+void readDot(dts* dt)
+{
+    cout << "Dot-X: "; cin >> dt->X;
+    cout << "Dot-Y: "; cin >> dt->Y;
+}
+void checkifdotInsCirc(crcls* crc)
+{
+    int j; float dx, dy;
+    for (j = 0; j < dots; j++)
+    {
+        Br++;
+        if (dotsDat[j].X <= crc->X && dotsDat[j].Y <= crc->Y)
+        {
+            dx = crc->X - dotsDat[j].X;
+            dy = crc->Y - dotsDat[j].Y;
+            if (dx * dx + dy * dy <= crc->R * crc->R)
+            {
+                dotsInCircles[k][counter] = Br;
+                counter++;
+            }
+        }
+    }
+    dotsPerCircl[k] = counter;
+    counter = 0;
+    Br = 0;
+}
+void main()
+{
+    cout << "How many circles? "; cin >> circles;
+    for (int i = 0; i < circles; i++)
+    {
+        cout << "Circle " << i + 1 << "\n";
+        readCircles(&circlesDat[i]);
+    }
+    cout << "How many dots? "; cin >> dots;
+    for (int j = 0; j < dots; j++)
+    {
+        cout << "Dot " << j + 1 << "\n";
+        readDot(&dotsDat[j]);
+    }
+    for (k = 0; k < circles; k++)
+    {
+        checkifdotInsCirc(&circlesDat[k]);
+    }
+    for (int i = 0; i < circles; i++)
+    {
+        cout << "In Circle " << i + 1 << " lie: \n";
+        for (int m = 0; m < dotsPerCircl[i]; m++)
+        {
+            cout << "Dot - " << dotsInCircles[i][m] << "\n";
+        }
+    }
+}
