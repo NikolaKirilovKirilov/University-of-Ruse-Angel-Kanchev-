@@ -1,0 +1,165 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+
+class Person
+{
+private:
+	string name = "", fmlyStrg = "", location = "", PIN = "";
+	int family = 0, nights = 0, prcPrNt = 0, sumOfStay = 0;
+public:
+
+	Person() {};
+
+	void hasFamily()
+	{
+		if (family == 1)
+		{
+			fmlyStrg = "Married!";
+		}
+		else if (family == 2)
+		{
+			fmlyStrg = "Isn't married!";
+		}
+	}
+	void getAllData()
+	{
+		cout << "Name: "; cin >> name;
+		cout << "PIN: "; cin >> PIN;
+		cout << "Family: "; cin >> family;
+		hasFamily();
+		cout << "Staying at: "; cin >> location;
+		cout << "Duration (nights): "; cin >> nights;
+		cout << "Price per night: "; cin >> prcPrNt;
+	}
+	void displayAllData()
+	{
+		cout << "Name: " << name << endl;
+		cout << "PIN: " << PIN << endl;
+		cout << "Family: " << fmlyStrg << endl;
+		cout << "Staying at: " << location << endl;
+		cout << "Duration (nights): " << nights << endl;
+		cout << "Price per night: " << prcPrNt << endl << endl;
+	}
+	void allMrdFrmSmLoc(string srchdLoc)
+	{
+		if (family == 1)
+		{
+			if (srchdLoc == location)
+			{
+				displayAllData();
+				sumOfStay = nights * prcPrNt;
+				cout << "Total: " << sumOfStay << endl;
+				cout << endl;
+			}
+		}
+	}
+	bool checkYrIfMan(string year)
+	{
+	string gender = PIN.substr(8, 1);
+	if (gender == "1" || gender == "3" || gender == "5" || gender == "7" || gender == "9")
+		{
+			string gvnYear = year.substr(2, 2); string persnYear = PIN.substr(4, 2);
+			string firstTwoDig = year.substr(0, 2); string month = PIN.substr(1, 2);
+			if (gvnYear == persnYear)
+			{
+				if (firstTwoDig == "20" && (month >= "41" && month <= "52"))
+				{
+					return true;
+				}
+				else if (firstTwoDig == "19" && (month >= "01" && month <= "12"))
+				{
+					return true;
+				}
+				else
+				{
+					cout << name <<"'s PIN isn't adecuit\n";
+					return false;
+				}
+			}
+			else
+			{
+				return false;
+			}
+		}
+	}
+
+	string giveFamilyStatus()
+	{
+		if (family == 1)
+		{
+			return "Married";
+		}
+		else if (family == 2)
+		{
+			return "Isn't married!";
+		}
+	}
+};
+
+int main()
+{
+	cout << "0 - Quit\n";
+	cout << "1 - Save new data\n";
+	cout << "2 - Show all gathered data\n";
+	cout << "3 - Show all married people from same location and the sum of their stay\n";
+	cout << "4 - Show all not married men born in the same year\n";
+	cout << endl;
+
+	Person hotelRegister[25], notMrdMen[25];
+	Person currPerson;
+	int guestCounter = 0, unmrdCounter = 0;
+
+	string srchdLoc, year;
+
+	char command;
+	cout << "Command: "; cin >> command;
+	cout << endl;
+
+	while (command != '0')
+	{
+		switch (command)
+		{
+		case'1':
+			hotelRegister[guestCounter++].getAllData();
+			cout << endl;
+			break;
+		case'2':
+			for (int i = 0; i < guestCounter; i++)
+			{
+				hotelRegister[i].displayAllData();
+			}
+			break;
+		case'3':
+			cout << "Location to look for: "; cin >> srchdLoc;
+			cout << endl;
+			for (int i = 0; i < guestCounter; i++)
+			{
+				hotelRegister[i].allMrdFrmSmLoc(srchdLoc);
+			}
+			break;
+		case'4':
+			cout << "Guests born in: "; cin >> year;
+			cout << endl;
+			for (int i = 0; i < guestCounter; i++)
+			{
+				if (hotelRegister[i].giveFamilyStatus() == "Isn't married!")
+				{
+					if (hotelRegister[i].checkYrIfMan(year))
+					{
+						cout << endl;
+						notMrdMen[unmrdCounter++] = hotelRegister[i];
+					}
+				}
+			}
+			for (int i = 0; i < unmrdCounter; i++)
+			{
+				notMrdMen[i].displayAllData();
+			}
+			break;
+		}
+
+		cout << "Command: "; cin >> command;
+		cout << endl;
+	}
+}
