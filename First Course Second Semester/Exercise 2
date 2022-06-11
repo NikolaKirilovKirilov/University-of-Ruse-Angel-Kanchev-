@@ -1,0 +1,241 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+
+class Person
+{
+protected:
+	string name, pin;
+	int points;
+public:
+	string institution;
+
+	Person() 
+	{
+		name = "";
+		pin = "";
+		institution = "";
+		points = 0;
+	};
+	Person(string c_institution)
+	{
+		this->institution = c_institution;
+	};
+	Person(string c_name, string c_pin, int c_points)
+	{
+		this->name = c_name; this->pin = c_pin; this->points = c_points;
+	};
+	virtual void getData()
+	{
+		cout << "Name: "; cin >> name;
+		cout << "PIN: "; cin >> pin;
+		cout << "Points: "; cin >> points;
+	}
+	virtual void display()
+	{
+		cout << "Name: " << name; cout << endl;
+		cout << "PIN: " << pin; cout << endl;
+		cout << "Points: " << points; cout << endl;
+	}
+	int getPoints()
+	{
+		return this->points;
+	}
+
+	
+	virtual bool isGirl()
+	{
+		return false;
+	}
+};
+
+class UniversityStudents : public Person
+{
+protected:
+	string university, faculty, qualification;
+public:
+	UniversityStudents() 
+	{
+		university = "";
+		faculty = "";
+		qualification = "";
+	};
+	UniversityStudents(string c_institution) 
+	{
+		this->institution = c_institution;
+	};
+	UniversityStudents(string c_institution,string c_university, string c_faculty, string c_qualification)
+	{
+		this->institution = c_institution; this->university = c_university; this->faculty = c_faculty; this->qualification = c_qualification;
+	};
+	void getData()
+	{
+		Person::getData();
+		cout << "University: "; cin >> university;
+		cout << "Faculty: "; cin >> faculty;
+		cout << "Qualification: "; cin >> qualification;
+	}
+
+	void display()
+	{
+		Person::display();
+		cout << "University: " + university; cout << endl;
+		cout << "Faculty: " + faculty; cout << endl;
+		cout << "Qualification: " + qualification; cout << endl;
+	}
+
+	bool isGirl()
+	{
+		string gender = pin.substr(8, 1);
+		if (gender == "0" || gender == "2" || gender == "4" || gender == "6" || gender == "8")
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+};
+
+class SchoolStudent : public Person
+{
+protected:
+	string school, grade;
+public:
+	SchoolStudent() 
+	{
+		school = "";
+		grade = "";
+	};
+	SchoolStudent(string c_institution) 
+	{
+		this->institution = c_institution;
+	};
+	SchoolStudent(string c_institution, string c_school, string c_grade )
+	{
+		this->institution = c_institution; this->school = c_school; this->grade = c_grade;
+	};
+	void getData()
+	{
+		Person::getData();
+		cout << "School: "; cin >> school;
+		cout << "Grade: "; cin >> grade;
+	}
+	void display()
+	{
+		Person::display();
+		cout << "School: " + school; cout << endl;
+		cout << "Grade: " + grade; cout << endl;
+	}
+	bool isGirl()
+	{
+		string gender = pin.substr(8, 1);
+	if (gender == "0" || gender == "2" || gender == "4" || gender == "6" || gender == "8")
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+};
+int main()
+{
+	Person* arr[30]; Person* girlsWthOvr30[30];
+
+	cout << "0 - Quit." << endl ;
+	cout << "1 - Add data of new participant." << endl;
+	cout << "2 - Display all participants and their data." << endl;
+	cout << "3 - Display participant with the most points and their data." << endl;
+	cout << "4 - Gather all femail participants with over 30 points and display their data." << endl;
+	cout << endl;
+	char command; int ptrCounter = 0, girls30Ctr = 0, curPoints = 0;;
+	cout << "Command: "; cin >> command; cout << endl;
+	while (command != '0')
+	{
+		Person* student;
+		string schoolingInstitution = "";
+		Person* bestStudent = nullptr; bool hasChange = false;
+
+		switch (command)
+		{
+		case'1':
+			cout << "School/University\n";
+			cin >> schoolingInstitution;
+			cout << endl;
+
+			if (schoolingInstitution == "School")
+			{
+				student = new SchoolStudent(schoolingInstitution);
+				student->getData();
+				arr[ptrCounter++] = student;
+			}
+			else if (schoolingInstitution == "University")
+			{
+				student = new UniversityStudents(schoolingInstitution);
+				student->getData();
+				arr[ptrCounter++] = student;
+			}
+			cout << endl;
+			break;
+
+		case'2':
+			for (int i = 0; i < ptrCounter; i++)
+			{
+				if (arr[i]->institution == "School")
+				{
+					arr[i]->display();
+				}
+				else if (arr[i]->institution == "University")
+				{
+					arr[i]->display();
+				}
+				cout << endl;
+			}
+			break;
+		case'3':
+			for (int i = 0; i < ptrCounter; i++)
+			{
+				if (arr[i]->getPoints() > curPoints)
+				{
+					bestStudent = arr[i];
+					curPoints = arr[i]->getPoints();
+					hasChange = true;
+				}
+			}
+			if (hasChange)
+			{
+				bestStudent->display();
+			}
+			cout << endl;
+			break;
+case'4':
+			bool anyGirls = false;
+			for (int i = 0; i < ptrCounter; i++)
+			{
+				if (arr[i]->isGirl())
+				{
+					girlsWthOvr30[girls30Ctr++] = arr[i];
+					anyGirls = true;
+				}
+			}
+			if (anyGirls)
+			{
+				for (int i = 0; i < girls30Ctr; i++)
+				{
+					girlsWthOvr30[i]->display();
+					cout << endl;
+				}
+			}
+			else
+			{
+				cout << "There are no girls in this competition!\n\n";
+			}
+
+			break;
+		}
+		cout << "Command: "; cin >> command; cout << endl;
+	}
+}
