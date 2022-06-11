@@ -1,0 +1,34 @@
+#include <stdlib.h>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    float digits[30][30], avgNegativesArr[30], sumNeg = 0, countNeg = 0, avgNegatives = 0;
+    int cols, rows;
+    cin >> rows;
+    cin >> cols;
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < cols; j++)
+        {
+            cin >> digits[cols][rows];
+            float currentDigit = digits[cols][rows];
+            if (currentDigit < 0)
+            {
+                sumNeg += currentDigit;
+                countNeg++;
+            }
+            avgNegatives = sumNeg / countNeg;
+            avgNegativesArr[i] = avgNegatives;
+        }
+        sumNeg = 0;
+        countNeg = 0;
+        avgNegatives = 0;
+    }
+    for (int i = 0; i < rows; i++)
+    {
+        cout << avgNegativesArr[i] << ", ";
+    }
+}
