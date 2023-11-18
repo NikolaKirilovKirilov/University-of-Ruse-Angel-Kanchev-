@@ -76,11 +76,8 @@ public:
 	}
 };
 
-int main()
+list<Point> enterPoints(int count)
 {
-	int pointsCount;
-	cin >> pointsCount;
-
 	list<Point> points;
 
 	for (int i = 0; i < pointsCount; i++)
@@ -92,10 +89,14 @@ int main()
 		points.push_back(point);
 	}
 
-	list<Vector> vectors;
-	int pointsSize = points.size();
+	return points
+}
 
-	for (int i = 0; i < pointsSize - 1; i++)
+list<Vector> enterVectors(List<Points> points)
+{
+	list<Vector> vectors;
+
+	for (int i = 0; i < points.size(); i++)
 	{
 		Point firstPoint = points.front();
 		points.pop_front();
@@ -106,6 +107,19 @@ int main()
 
 		vectors.push_back(vector);
 	}
+
+	return vectors;
+}
+
+int main()
+{
+	int pointsCount;
+	cin >> pointsCount;
+	
+	list<Point> points;
+	points = enterPoints(pointsCount);
+
+	list<Vector> vectors = enterVectors(points);
 
 	list<MidVector> midVectors;
 	int vectorsSize = vectors.size();
