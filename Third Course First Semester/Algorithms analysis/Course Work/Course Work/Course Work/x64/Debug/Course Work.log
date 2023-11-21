@@ -1,0 +1,6 @@
+﻿  Course Work.cpp
+D:\GitHub Repos\University-of-Ruse-Angel-Kanchev-\Third Course First Semester\Algorithms analysis\Course Work\Course Work\Course Work\Course Work.cpp(108,38): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\GitHub Repos\University-of-Ruse-Angel-Kanchev-\Third Course First Semester\Algorithms analysis\Course Work\Course Work\Course Work\Course Work.cpp(129,43): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\GitHub Repos\University-of-Ruse-Angel-Kanchev-\Third Course First Semester\Algorithms analysis\Course Work\Course Work\Course Work\Course Work.cpp(152,18): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\GitHub Repos\University-of-Ruse-Angel-Kanchev-\Third Course First Semester\Algorithms analysis\Course Work\Course Work\Course Work\Course Work.cpp(171,19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Course Work.vcxproj -> D:\GitHub Repos\University-of-Ruse-Angel-Kanchev-\Third Course First Semester\Algorithms analysis\Course Work\Course Work\x64\Debug\Course Work.exe
