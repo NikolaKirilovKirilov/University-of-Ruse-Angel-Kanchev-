@@ -12,6 +12,11 @@ public class Program extends Frame implements MouseListener, MouseMotionListener
 		setVisible(true);
 	}
 	
+	public static void Main(String[] args)
+	{
+		Program wnd = new Program();
+	}
+	
 	@Override
 	public void mouseDragged(MouseEvent e) {}
 
