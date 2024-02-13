@@ -1,0 +1,10 @@
+Да се напише програма която позволява интерактивно създаване на сцена, съдържаща произволен брой правоъгълници, определени по 2 диагонални точки и отсечки,
+определени по начална и крайна точка, задавани с ляв бутон на мишката. Да се реализира операция изтриване на обект (с десен бутон на мишката или комбинация Ctrl+ляв
+бутон в близост до 3 пиксела около линия на обекта). Получената сцена да се съхранява и чете  от файл. File/New да изчиства създаденото изображение, като предложи
+съхраняване, ако такова не е извършено.
+
+Write a program which allows interactiv creation of a scene, containing uncapped amount of rectangles, determined by 2 points of their diagonals, entered by left clik with
+the mouse. Add delete feature on click with the right mouse button or Ctrl + left mouse button click within 3 pixels from the figure. The scen should be able to be saved
+and loaded from a file. File/New should clear the scene, and offer to save if a save hasn't been made yet.
+
+Additional condition: Use all Object Oriented Principals - Polymorphism, Abstraction, Inheritance, Encapsulation
