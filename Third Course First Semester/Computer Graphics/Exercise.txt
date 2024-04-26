@@ -1,0 +1,5 @@
+В текстов файл са записани радиус, височина и цвят на конус. Да се разработи приложение с MFC и OpenGL, което прочита файла и изобразява конуса.
+Да се добави команда в меню View, която отваря диалог, в който се задава позиция на един и посока на 2-ри източник на светлина.
+
+Inputs about radius, height and color of a cone are saved in a text file. Develop an app with MFC and OpneGL, which reades the file and visualizes the cone.
+Add commands in menu View, whic opens a dialog, with which you can change the position of one light source and the direction of second one.
