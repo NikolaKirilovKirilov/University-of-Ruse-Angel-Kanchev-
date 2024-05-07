@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+		<head>
+				<meta charset="UTF-8">
+				<title>Product Manger</title>
+		</head>
+	
+		<body>
+			<form action="ProductServlet" method="get">
+				<input type="text" name="code" placeholder="Code">
+				<input type="text" name="name" placeholder="Name">
+				<input type="text" name="weight" placeholder="Weight">
+				<input type="text" name="width" placeholder="Width">
+				<input type="text" name="length" placeholder="Length">
+				<input type="text" name="height" placeholder="Height">
+				<input type="text" name="prodDate" placeholder="Production Date">
+				
+				<input type="submit" value="Add Product" name="Add">
+			</form>
+			<br>
+			<form action = "ProductServlet" method ="post">
+				<input type="number" name="index" placeholder="Index">
+				
+				<input type="submit" value="Show At" name="Show">
+				<input type="submit" value="Show All" name="Show">
+			</form>
+		</body>
+</html>
+				

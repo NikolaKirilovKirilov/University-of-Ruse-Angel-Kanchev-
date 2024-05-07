@@ -4,12 +4,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>DArts</groupId>
-  <artifactId>Cookies</artifactId>
+  <groupId>D.Arts</groupId>
+  <artifactId>servlet_form_data</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>Cookies Maven Webapp</name>
+  <name>servlet_form_data Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -26,16 +26,23 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
-        <dependency>
+    <!-- https://mvnrepository.com/artifact/jakarta.resource/jakarta.resource-api -->
+	<dependency>
         <groupId>jakarta.platform</groupId>
         <artifactId>jakarta.jakartaee-api</artifactId>
         <version>9.1.0</version>
         <scope>provided</scope>
     </dependency>
+	<!-- https://mvnrepository.com/artifact/org.apache.openwebbeans/openwebbeans-jsf -->
+	<dependency>
+      <groupId>org.apache.openwebbeans</groupId>
+      <artifactId>openwebbeans-jsf</artifactId>
+      <version>1.7.4</version>
+	</dependency>
   </dependencies>
 
   <build>
-    <finalName>Cookies</finalName>
+    <finalName>servlet_form_data</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

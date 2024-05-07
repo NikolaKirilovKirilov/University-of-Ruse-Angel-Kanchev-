@@ -3,6 +3,17 @@ package beans;
 public class Book {
 	private String bookTitle, author, ganre, pageCount, coverPath, description;
 
+	public Book() {};
+	public Book(String bookTitle, String author, String ganre, String pageCount, String coverPath, String description)
+	{
+		this.bookTitle = bookTitle;
+		this.author = author;
+		this.ganre = ganre;
+		this.pageCount = pageCount;
+		this.coverPath = coverPath;
+		this.description = description;
+	};
+	
 	public String getBookTitle() {
 		return bookTitle;
 	}
