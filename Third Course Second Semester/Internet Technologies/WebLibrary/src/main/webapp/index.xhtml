@@ -1,16 +1,18 @@
 <table>
-	<ui:repeat var="b" value="#{Books.books}" varStatus="myVarStatus">
+	<ui:repeat var="b" value="#{books.bookList}" varStatus="myVarStatus">
 	 	<tr>
 			<td>
 				#{myVarStatus.index}
 				#{b.author}
 				#{b.bookTitle}
 				#{b.pages}
-				<h:outputLink id="link#{myVarStatus.index}" value="book.xhtml">
+				
+				<h:outputLink id="link#{myVarStatus.index}" value="book.jsf">
 	    			<f:param name="bookNumber" value="#{myVarStatus.index}" />
 						Заглавие на книгата
-	    			<h:graphicImage value="#b.coverPath"/>
+	    				<h:graphicImage value="images/korica.bmp"/>
 				</h:outputLink>
+
 				
 			</td>
 		</tr>
