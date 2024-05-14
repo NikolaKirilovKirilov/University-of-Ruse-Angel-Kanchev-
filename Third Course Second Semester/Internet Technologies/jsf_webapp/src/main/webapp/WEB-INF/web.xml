@@ -4,15 +4,14 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-</web-app>
-
-<servlet>
-    <servlet-name>Faces Servlet</servlet-name>
+  <servlet>
+    <servlet-name>FacesServlet</servlet-name>
     <servlet-class>jakarta.faces.webapp.FacesServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
 </servlet>
 
 <servlet-mapping>
-    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-name>FacesServlet</servlet-name>
     <url-pattern>*.jsf</url-pattern>
 </servlet-mapping>
+</web-app>

@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>DArts</groupId>
+  <groupId>D.Arts</groupId>
   <artifactId>jsf_webapp</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
@@ -15,17 +15,11 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>jakarta.platform</groupId>
-      <artifactId>jakarta.jakartaee-api</artifactId>
-      <version>9.1.0</version>
-      <scope>provided</scope>
+        <groupId>jakarta.platform</groupId>
+        <artifactId>jakarta.jakartaee-api</artifactId>
+        <version>9.1.0</version>
+        <scope>provided</scope>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/com.github.jonasrutishauser.maven.plugin/cdi-maven-plugin -->
-	<dependency>
-      <groupId>com.github.jonasrutishauser.maven.plugin</groupId>
-      <artifactId>cdi-maven-plugin</artifactId>
-      <version>1.0.7</version>
-	</dependency>
   </dependencies>
   <build>
     <finalName>jsf_webapp</finalName>
