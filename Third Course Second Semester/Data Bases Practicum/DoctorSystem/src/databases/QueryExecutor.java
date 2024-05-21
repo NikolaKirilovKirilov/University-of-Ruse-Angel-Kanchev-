@@ -103,9 +103,21 @@ public class QueryExecutor {
         }
     }
     
-    public static void getSpecialization() 
+    public static void getSpecialization(String code) 
     {
-    	
+    	String deleteQuery = "SELECT * FROM Specialization, SpecializationDoctor WHERE SpecializationDoctor.DoctorCode IN (SELECT DoctorCode FROM Doctor WHERE DoctorCode = ?)";
+
+        try (Connection connection = Connector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery)) {
+
+            preparedStatement.setString(1, code);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            System.out.println("Rows deleted: " + rowsAffected);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     
     public static void getPrescription()
@@ -113,9 +125,21 @@ public class QueryExecutor {
     	
     }
     
-    public static void getIllnesData()
+    public static void getIllnesData(String code)
     {
-    	
+    	String deleteQuery = "Select * FROM Illness WHERE IllnessCode = ?";
+
+        try (Connection connection = Connector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery)) {
+
+            preparedStatement.setString(1, code);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+            System.out.println("Rows deleted: " + rowsAffected);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     
     public static void main(String[] args) {
