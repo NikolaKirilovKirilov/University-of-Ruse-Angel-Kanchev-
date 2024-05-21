@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <h:head>
+        <title>Add Reservation</title>
+        
+    </h:head>
+
+    <h:body>
+        <div class="form-container">
+            <h:form>
+                <h:panelGrid columns="2">
+                    Names: <h:inputText value="#{HotelBean.names}"/>
+                    Start Date: <h:inputText value="#{HotelBean.startDate}"/>
+                    End Date: <h:inputText value="#{HotelBean.endDate}"/>
+                    Price Per Night: <h:inputText value="#{HotelBean.pricePerNight}"/>
+                    Breakfast: <h:checkbox value="#{HotelBean.breakfast}"/>
+                    Dinner: <h:checkbox value="#{HotelBean.dinner}"/>
+                    Room Type: <h:inputText value="#{HotelBean.roomType}"/>
+                </h:panelGrid>
+                <h:commandButton value="Submit" action="#{HotelBean.addReservation}" />
+                <h:commandButton value="Reset" action="#{HotelBean.resetForm}" type="reset"/>
+                <h:commandButton value="View Reservations" action="reservations.xhtml?faces-redirect=true" />
+            </h:form>
+        </div>
+    </h:body>
+    
+</html>
+
