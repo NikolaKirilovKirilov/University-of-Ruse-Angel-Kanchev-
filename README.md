@@ -1,11 +1,6 @@
 University-of-Ruse-Angel-Kanchev Assignments 🧑‍🎓
 This repository compiles coursework assignments completed during my studies at the University of Ruse "Angel Kanchev", covering the C++, Java, HTML, Python, and C programming languages. Each task reflects knowledge and skills gained across multiple semesters. 
 uni-ruse.bg
-+13
-github.com
-+13
-github.com
-+13
 
 📚 About the University
 The University of Ruse “Angel Kanchev” is a major public university in northeast Bulgaria, founded in 1945 and reorganized under its current name in 1995. It serves as a key center for education and research in the region. 
